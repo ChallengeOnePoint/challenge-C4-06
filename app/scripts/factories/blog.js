@@ -26,7 +26,7 @@ angular.module('blogApp').factory('Blog',
                 post.is_video = true;
                 post.url = "/images/onepoint/" + post.media;
               }
-              if (post.media.indexOf('youtu.be') > -1){
+              if (post.media.indexOf('youtu.be') > -1 || post.media.indexOf('youtube') > -1){
                 post.is_youtube = true;
                 post.media = post.media.replace("watch?v=", "v/");
               }
