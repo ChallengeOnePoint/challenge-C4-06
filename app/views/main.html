@@ -25,11 +25,11 @@
   <div class="modal-content">
     <h3>{{current_post.title}}</h3>
     <span>Published by {{current_post.author}} on {{current_post.publicationDate}}</span>
-    <img class="responsive-img" g-if="current_post.is_img" src="{{current_post.url}}">
-    <video class="responsive-video" controls autoplay ng-if="current_post.is_video" src="{{current_post.url}}" mute>
+    <img class="responsive-img" ng-show="current_post.is_img" src="{{current_post.url}}"/>
+    <video class="responsive-video" controls autoplay ng-show="current_post.is_video" src="{{current_post.url}}" mute/>
     <p>{{current_post.description}}</p>
-    <div ng-if="current_post.is_youtube" >
-      <iframe allowfullscreen="" frameborder="0" height="315" src="{{current_post.url}}" width="420"></iframe>
+    <div ng-show="current_post.is_youtube" >
+      <iframe allowfullscreen="" frameborder="0" height="315" src="{{current_post.media}}" width="420"></iframe>
     </div>
   </div>
   <div class="modal-footer">
