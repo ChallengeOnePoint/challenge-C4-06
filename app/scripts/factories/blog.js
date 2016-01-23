@@ -17,6 +17,21 @@ angular.module('blogApp').factory('Blog',
           var url = "/images/onepoint/blogposts.json";
           $http.get(url)
           .success(function(data) {
+            data.forEach(function(post){
+              if (post.media.indexOf('imgs') > -1){
+                post.is_img = true;
+                post.url = "/images/onepoint/" + post.media;
+              }
+              if (post.media.indexOf('videos') > -1){
+                post.is_video = true;
+                post.url = "/images/onepoint/" + post.media;
+              }
+              if (post.media.indexOf('youtu.be') > -1){
+                post.is_youtube = true;
+                post.url = post.media;
+              }
+            });
+            console.log(data);
             return resolve(data);
           });
         });
